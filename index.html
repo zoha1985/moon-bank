@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The moon bank</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="login-area">
+        <h1 class="text-center">The Moon BANK</h1>
+        <div class="submit-area">
+            <h4>Login</h4>
+            <input type="text" class="form-control" placeholder="Email">
+            <br>
+            <input type="password" name="" id="" class="form-control" placeholder="Password">
+            <br>
+            <button id="varyfy" class="btn btn-success">Enter</button>
+        </div>
+    </div>
+    <div id="tran-area">
+        <div class="row">
+            <div class="col-md-4 ">
+               <div class="deposit status">
+                <h5 class="">Deposit</h5>
+                <h2>$ <span id="corentDeposit">00</span></h2>
+               </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="widthdrow status">
+                    <h5 class="">Widthdrow</h5>
+                    <h2>$00</h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="blance status">
+                    <h5 >Blacce</h5>
+                    <h2>$ <span id="corentBalans">10</span> </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="submit-area">
+                <h4>Deposit</h4>
+                <input id="depositAmount" type="text" class="form-control" placeholder="Deposite here">
+                <br>
+                <button id="deposit" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit-area">
+                <h4>Widthdrow</h4>
+                <input id="addWidthdrawAmount" type="text" class="form-control" placeholder="Widthdraw here">
+                <br>
+                <button id="addWidthdraw" class="btn btn-success">Widthdrow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <script>
+        // Loginbutton Event handaler
+        const loginBtn = document.getElementById("varyfy");
+        loginBtn.addEventListener('click', function(){
+        const loginArea = document.getElementById("login-area");
+        loginArea.style.display="none";
+        const tranArea = document.getElementById("tran-area");
+        tranArea.style.display = "block";
+        })
+        // Deposit button Event handaler
+        const depositButton = document.getElementById("deposit");
+        depositButton.addEventListener('click', function(){
+        const depositAmount = document.getElementById("depositAmount").value;
+        const depositNumber = parseFloat(depositAmount);
+        // This is for ranning balances
+        updateSpanTag('corentDeposit', depositNumber)
+        // const corenstDeposit = document.getElementById("corentDeposit").innerText;
+        // const corentDepositNumber = parseFloat(corenstDeposit);
+        // const totalDeposit = depositNumber + corentDepositNumber;
+        //  document.getElementById("corentDeposit").innerText = totalDeposit;
+            // This is for total balances
+         updateSpanTag('corentBalans', depositNumber);
+        //  const corentBalans = document.getElementById('corentBalans').innerText;
+        //  const corentBalanceNumber = parseFloat(corentBalans);
+        //  const totalBalance = depositNumber + corentBalanceNumber;
+        //  document.getElementById('corentBalans').innerText = totalBalance;
+       
+
+         document.getElementById("depositAmount").value = "";
+
+
+        })
+        // This is widthdraw functionality
+        const widthdrawButton = document.getElementById("addWidthdraw");
+        widthdrawButton.addEventListener('click', function()
+        {
+            const widthdeawNumber = getInputeNumber('addWidthdrawAmount');
+            // const widthdrawAmount = document.getElementById("addWidthdrawAmount").value;
+            // const widthdrawNumber = parseFloat(widthdrawAmount);
+            // totalWidthdraw = widthdrawNumber -
+        });
+    
+        // This function for widthdraw amount
+        function getInputeNumber(id){
+            const widthdrawAmount = document.getElementById(id).value;
+            const widthdrawNumber = parseFloat(widthdrawAmount);
+            return widthdrawNumber;
+        }
+        
+            // This function for balance and total balances
+        function updateSpanTag(id,depositNumber){
+                    const corentBalans = document.getElementById(id).innerText;
+                    const corentBalanceNumber = parseFloat(corentBalans);
+                    const totalBalance = depositNumber + corentBalanceNumber;
+                    document.getElementById(id).innerText = totalBalance;
+        }
+    </script>
+</body>
+</html>
