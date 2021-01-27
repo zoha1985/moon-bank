@@ -32,7 +32,7 @@
             <div class="col-md-4 ">
                 <div class="widthdrow status">
                     <h5 class="">Widthdrow</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWidthrow">00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -95,6 +95,7 @@
        
 
          document.getElementById("depositAmount").value = "";
+        
 
 
         })
@@ -106,6 +107,9 @@
             // const widthdrawAmount = document.getElementById("addWidthdrawAmount").value;
             // const widthdrawNumber = parseFloat(widthdrawAmount);
             // totalWidthdraw = widthdrawNumber -
+            updateSpanTag('currentWidthrow',  widthdeawNumber);
+            updateSpanTag('corentBalans', -1 * widthdeawNumber);
+            document.getElementById("addWidthdrawAmount").value = "";
         });
     
         // This function for widthdraw amount
